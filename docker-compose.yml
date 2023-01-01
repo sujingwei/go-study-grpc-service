@@ -1,0 +1,18 @@
+version: '3'
+services:
+  app:
+    container_name: "go-study-grpc-service"
+    image: 348149047/golang-grpc:1.19.4
+    volumes:
+      - .:/code
+    # ports:
+    #   - "15302:15302"
+    tty: true
+    stdin_open: true
+    privileged: true
+    # 指定工作目录
+    working_dir: /code
+    environment:
+      - GO111MODULE=on
+      - GOPROXY=https://goproxy.cn,direct
+    entrypoint: ["/bin/bash"]
